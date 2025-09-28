@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>My Telegram Web App</title>
-  <meta charset="UTF-8" />
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бункер - Генератор Персонажа</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Hello from Web App!</h2>
-  <button onclick="sendData()">Отправить в бот</button>
-
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.expand(); // делает окно больше
-
-    function sendData() {
-      tg.sendData("Привет от WebApp!"); // отправляет данные в бот
-    }
-  </script>
+  <div class="container">
+    <h1>Генератор Персонажа</h1>
+    <button onclick="generateCharacter()">Сгенерировать</button>
+    <pre id="output">Нажмите кнопку, чтобы сгенерировать персонажа</pre>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
