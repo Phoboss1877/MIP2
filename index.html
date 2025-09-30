@@ -1,13 +1,109 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Бункер</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .active {
+      display: flex;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+    }
+    .card {
+      border: 1px solid #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      width: 100%;
+    }
+    .sad {
+      font-size: 40px;
+    }
+  </style>
 </head>
 <body>
-    <div class="Main">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, temporibus ad mollitia hic vel repudiandae sit labore quaerat voluptatum id quisquam deleniti officia dicta harum sapiente, praesentium recusandae quas et?
+
+  <!-- Экран 1 -->
+  <div id="screen1" class="screen active">
+    <h1>Бункер</h1>
+    <button onclick="goTo(2)">Создать комнату</button>
+    <input type="text" placeholder="Введите код">
+    <div class="card" onclick="goTo(2)">Комната 123</div>
+  </div>
+
+  <!-- Экран 2 -->
+  <div id="screen2" class="screen">
+    <h2>Комната 123</h2>
+    <div class="card">
+      <p>Игроки: 4</p>
+      <p>Катастрофа: Средняя</p>
     </div>
+    <button onclick="goTo(3)">Начать</button>
+  </div>
+
+  <!-- Экран 3 -->
+  <div id="screen3" class="screen">
+    <h2>Карточка катастрофы</h2>
+    <div class="card">Описание катастрофы...</div>
+    <p>Игроки:</p>
+    <ul>
+      <li>Игрок 1</li>
+      <li>Игрок 2</li>
+      <li>Игрок 3</li>
+      <li>Игрок 4</li>
+    </ul>
+    <button onclick="goTo(4)">Голосование</button>
+  </div>
+
+  <!-- Экран 4 -->
+  <div id="screen4" class="screen">
+    <h2>Результат</h2>
+    <div class="card">
+      <div class="sad">☹️</div>
+      <p>Проигравшие</p>
+    </div>
+    <button onclick="goTo(1)">Сыграть ещё раз</button>
+  </div>
+
+  <script>
+    function goTo(n) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen' + n).classList.add('active');
+    }
+  </script>
+
 </body>
 </html>
